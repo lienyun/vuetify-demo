@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 
 const p = defineProps(["isWithColor"]);
 const copyUrl = async (url) => {
@@ -9,9 +8,10 @@ const copyUrl = async (url) => {
 </script>
 
 <template>
+
   <VCard class="mx-5 my-2 pa-3">
     <VRow>
-      <VCol v-for="n in 200" cols="4" :key="n" sm="3" md="2" lg="1">
+      <VCol v-for="n in 12" cols="4" :key="n" sm="3" md="2" lg="1">
         <VHover v-slot="{ isHovering, props }">
           <VCard
             @click="

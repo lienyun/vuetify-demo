@@ -1,19 +1,24 @@
 <script setup>
+import { ref } from "vue";
+import { useTheme } from "vuetify";
 
-const emits = defineEmits(['selectOption'])
+const emits = defineEmits(["selectOption"]);
 
 const selectOption = (isColor) => {
-    emits('selectOption', isColor)
-}
+  emits("selectOption", isColor);
+};
 
+const theme = useTheme();
+const darkMode = ref(false);
+
+const toggleMode = () => {
+  darkMode.value = !darkMode.value;
+  theme.global.name.value = darkMode.value ? "dark" : "light";
+};
 </script>
 
-
-
 <template lang="">
-  <VNavigationDrawer 
-  expand-on-hover 
-  rail>
+  <VNavigationDrawer expand-on-hover rail>
     <VList>
       <VListItem
         prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
@@ -24,20 +29,25 @@ const selectOption = (isColor) => {
     <VDivider></VDivider>
 
     <VList density="compact" nav>
-        <VListItem
-            prepend-icon="mdi-image" 
-            title="Color Gallery"
-            value="color"
-            @click="selectOption(true)"
-        />
+      <VListItem
+        prepend-icon="mdi-image"
+        title="Color Gallery"
+        value="color"
+        @click="selectOption(true)"
+      />
 
-        <VListItem
-            prepend-icon="mdi-dialpad" 
-            title="Grayspace Gallery"
-            value="gray"
-            @click="selectOption(false)"
-        />
-
+      <VListItem
+        prepend-icon="mdi-dialpad"
+        title="Grayspace Gallery"
+        value="gray"
+        @click="selectOption(false)"
+      />
+      <VListItem
+        prepend-icon="mdi-theme-light-dark"
+        title="Toggle Mode"
+        value="gray"
+        @click="toggleMode"
+      />
     </VList>
   </VNavigationDrawer>
 </template>
