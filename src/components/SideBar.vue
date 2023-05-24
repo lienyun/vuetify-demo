@@ -13,7 +13,7 @@ const darkMode = ref(false);
 
 const toggleMode = () => {
   darkMode.value = !darkMode.value;
-  theme.global.name.value = darkMode.value ? "dark" : "light";
+  theme.global.name.value = darkMode.value ? "myDarkTheme" : "myTheme";
 };
 </script>
 

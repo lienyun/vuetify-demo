@@ -38,7 +38,7 @@ const darkMode = ref(false);
         </v-col>
         <v-col cols="auto"> <v-btn color="error"> Error </v-btn> </v-col>
       </v-row>
-
+      <v-switch label="Switch"></v-switch>
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn color="info"> Info </v-btn>
@@ -52,6 +52,7 @@ const darkMode = ref(false);
       </v-row>
     </v-responsive>
   </v-container>
+  
   </VApp>
 
 
